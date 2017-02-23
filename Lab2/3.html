@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Your location</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Find your location...</h1>
+    <p id="change">(Share your location if you want to see the result)</p>
+    <button onclick="getLocation()">Try it</button>
+    <div id="mapholder"></div>
+    <script>
+    function getLocation() {
+        var output = document.getElementById("mapholder");
+        var para = document.getElementById("change");
+        if (!navigator.geolocation) {
+            output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+            return;
+        }
+
+        function success(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            var img = new Image();
+            img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+            para.innerHTML = "Aloha";
+            output.appendChild(img);
+        }
+
+        function error() {
+            output.innerHTML = "Unable to retrieve your location";
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
+    </script>
+</body>
+
+</html>

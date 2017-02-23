@@ -1,0 +1,10 @@
+.sub {
+	vertical-align: super;
+	float: left;
+}
+.bold {
+	font-weight: bold;
+}
+.hover {
+	cursor: pointer;
+}

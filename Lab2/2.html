@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Bai 2</title>
+	<link rel="stylesheet" href="">
+</head>
+<body style="color: white;">
+	<form action="2_post.html" style="width: 720px; height: 460px; background: url(background_2.jpg) no-repeat fixed; padding-top: 10px; padding-left: 10px;">
+		<h2 style="margin-top: 0px;">Please fill in the following information</h2>
+	
+	<table>
+			<tr>
+				<td><label for="lastname">Last Name*</label></td>
+				<td >
+					<input id="lastname" type="text" required>
+					<label for="firstname">First Name*</label>
+					<input type="text" id="firstname" required>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="email">Email*</label></td>
+				<td><input id="email" type="email" style="width: 250px;" required placeholder="example@abc.com">(Each email has only one account)</td>
+			</tr>
+			<tr>
+				<td><label for="display_name">Display name</label></td>
+				<td><input id="display_name" type="text" style="width: 250px;" maxlength="10"; minlength="4"; pattern="[A-Za-z0-9]{4,10}"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Only upper/lowercase letters and numbers. The string must also has a minimum of four characters, and maximum of ten.</td>
+			</tr>
+			<tr>
+				<td><label for="password">Password*</label></td>
+				<td><input id="password" type="password" style="width: 250px;" required></td>
+			</tr>
+			<tr>
+				<td><label for="re_password">Re-enter Password*</label></td>
+				<td><input id="re_password" type="password" style="width: 250px;" required></td>
+			</tr>
+			<tr>
+				<td>Sex</td>
+				<td><input type="radio" name="sex" value="male" /> Man <input type="radio" name="sex" value="female" /> Woman <br /></td>
+			</tr>
+			<tr>
+				<td>Birthdate</td>
+				<td><input type="date" id="birthdate"></td>
+			</tr>
+			<tr>
+				<td>Favorite Color</td>
+				<td><input type="color"></td>
+			</tr>
+		</table>
+		<button id="submit" type="submit">Send</button>
+		</form>
+</body>
+</html>
