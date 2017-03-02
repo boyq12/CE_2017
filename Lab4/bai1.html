@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bai 1</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body style="color: black;">
+    <div style="float: left;">
+        <form action="javascript:void(0);" style="display: table; height: 460px; background: url(background_2.jpg) no-repeat fixed; padding-top: 10px; padding-left: 10px;">
+            <h2 style="margin-top: 0px;">Please fill in the following information</h2>
+            <table>
+                <tr>
+                    <td>
+                        <label for="lastname">Last Name*</label>
+                    </td>
+                    <td>
+                        <input id="lastname" type="text" required>
+                        <label for="firstname">First Name*</label>
+                        <input type="text" id="firstname" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email*</label>
+                    </td>
+                    <td>
+                        <input id="email" type="email" style="width: 250px;" required placeholder="example@abc.com">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="address">Display name</label>
+                    </td>
+                    <td>
+                        <textarea name="" id="address" cols="30" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sex</td>
+                    <td>
+                        <input type="radio" name="sex" id="male" value="male" /> Man
+                        <input type="radio" name="sex" value="female" /> Woman
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Birthdate</td>
+                    <td>
+                        <input type="date" id="birthdate">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Job*</td>
+                    <td>
+                        <select name="job" id="job" onchange="onChangeJob()">
+                            <option value="student">Student</option>
+                            <option value="lecture">Lecture</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>You want to pay for*</td>
+                    <td>
+                        <select name="subcription" id="subcription">
+                            <option value="1year">1 year</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Picture(4x6)*</td>
+                    <td>
+                        <input type="file" required id="file">
+                    </td>
+                </tr>
+            </table>
+            <button id="submit" onclick="showInfo()">Review</button>
+        </form>
+    </div>
+    <div style="float: left;">
+        <h2>Here is your information after click Review</h2>
+        <p id="info"></p>
+    </div>
+</body>
+<script>
+function addOption() {
+    var sub = document.getElementById("subcription");
+    var option = document.createElement("option");
+    option.text = "2 years";
+    if (sub.length < 2) {
+        sub.add(option);
+    }
+
+}
+
+function removeOption() {
+    var sub = document.getElementById("subcription");
+    if (sub.length > 1) {
+        sub.remove(1);
+    }
+}
+
+function onChangeJob() {
+    var job = document.getElementById("job");
+    var selectedJob = job.options[job.selectedIndex].value;
+    if (selectedJob == "student") {
+        removeOption();
+    } else {
+        addOption();
+    }
+}
+function showInfo() {
+	var info = document.getElementById("info");
+	var name = document.getElementById("lastname").value + " " + document.getElementById("firstname").value;
+	var email = document.getElementById("email").value;
+	var address = document.getElementById("address").value;
+	var sex = "Man";
+	if (!document.getElementById("male").checked) {
+		sex = "Woman";
+	}
+	var birthdate = document.getElementById("birthdate").value;
+	var job = document.getElementById("job");
+    var selectedJob = job.options[job.selectedIndex].value;
+    var sub = document.getElementById("subcription");
+    var selectedSub = sub.options[sub.selectedIndex].value;
+    var file = document.getElementById("file").value;
+
+    info.innerHTML = 'Name: ' + name + '&nbsp;<br>' + 'Email: ' + email + '&nbsp;<br>' +'Address: '+ address + '&nbsp;<br>' + 'Sex: '+ sex + '&nbsp;<br>' + 'Birth day: ' + birthdate + '&nbsp;<br>' + 'Job: ' + selectedJob + '&nbsp;<br>' + 'You want to pay for ' + selectedSub + '&nbsp;<br>' + 'Your picture: '+ file;
+
+}
+</script>
+
+</html>
